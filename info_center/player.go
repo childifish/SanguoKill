@@ -261,9 +261,13 @@ func (p *Player)PrintPlayer()  {
 }
 
 //加血
-func (p *Player)Heal(i int)  {
+func (p *Player)Heal(i int)bool  {
 	//todo：检测血量上限
+	if p.Hp+i >= p.Hero.HeroHp {
+		return false
+	}
 	p.Hp += i
+	return true
 }
 
 //受伤

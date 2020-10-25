@@ -122,6 +122,9 @@ type Peach struct {
 }
 
 func (p Peach) Choose(chain PlayerChain)(re []Target) {
+	if NowPlayer.Hp+1 > NowPlayer.Hero.HeroHp{
+		return re
+	}
 	re = append(re,NowPlayer)
 	return
 }

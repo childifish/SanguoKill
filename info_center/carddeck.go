@@ -75,7 +75,7 @@ func RandCard() Card {
 		}
 	case 2:
 		return Card{
-			Poker:  RandPoker(),
+			Poker:  RandPoker().Goto("red"),
 			User:   "",
 			Name:   "桃",
 			Effect: Peach{},

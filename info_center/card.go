@@ -51,13 +51,16 @@ func (c *Card)Use()bool{
 	nowTarget.Do()
 
 	Targets := nowTarget.Choose(*Players)
+	if len(Targets)<1{
+		fmt.Println("无可选择对象")
+		return false
+	}
 
 	realTarget :=  ChooseTarget(Targets)
 
 	nowTarget.AskAndEffect(&realTarget)
 
-	//todo: 不能成功掉血
-	//fmt.Println(Players)
+
 
 
 	return  true
