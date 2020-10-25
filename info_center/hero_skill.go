@@ -1,25 +1,44 @@
 package info_center
 
-//锁定技--触发条件达到就必须触发
-//比较特殊
-type Passive interface {
-	Situation()
+
+
+type GuanYuSkill struct {
+	Hero
 }
 
-//限定技--全局只能触发一次
-//在游戏开始时声明该变量
-type OnlySkill interface {
-	IsAble()bool
-	Operation
+//选一张牌，将他变为杀
+//不对头
+func (g GuanYuSkill)AskAndEffect(target *Target)  {
+	var value = *target
+	card := value.(Card)
+	card.Effect = Kill{}
+	card.Use()
 }
 
-//觉醒技=限定技+锁定技
-type AwakeningSkill interface {
-	Passive
-	OnlySkill
+func (g GuanYuSkill)Choose(p PlayerChain)(re []Target) {
+	for i := 0; i < len(NowPlayer.HandCard); i++ {
+		if NowPlayer.HandCard[i].Flower==1||NowPlayer.HandCard[i].Flower==3{
+			re = append(re,NowPlayer.HandCard[i])
+		}
+	}
+	return
 }
 
-//基础技能
-type BasicSkill interface {
-	Operation
+func ChooseHero(string2 string)Hero  {
+	switch string2 {
+	case "关羽":
+		return Hero{
+			HeroName: "关羽",
+			User:     "",
+			HeroHp:   4,
+			Skill:    GuanYuSkill{},
+		}
+	default:
+		return Hero{
+			HeroName: "关羽",
+			User:     "",
+			HeroHp:   4,
+			Skill:    GuanYuSkill{},
+		}
+	}
 }

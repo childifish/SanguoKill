@@ -9,6 +9,8 @@ func (p Position)CalculatePos(targetID int,chain PlayerChain)int  {
 }
 
 //寻找周围的人
+
+//todo: 没用
 func (p Position)FindNearBy(player Player,chain PlayerChain,want int)[]Player {
 	var pos int
 	for i, i2 := range chain.Players {

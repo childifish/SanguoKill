@@ -20,8 +20,11 @@ type Card struct {
 
 func PrintCards(c []Card)  {
 	for i, i2 := range c {
-		fmt.Printf("序号%d:花色%s,卡牌信息:%v\n",i+1,i2.PrintPoker(),i2)
+		fmt.Printf("序号%d:花色%s,卡牌名称:%v\n",i+1,i2.PrintPoker(),i2.Name)
 	}
+}
+func PrintCard(c Card)  {
+	fmt.Printf("花色%s,卡牌名称:%v\n",c.PrintPoker(),c.Name)
 }
 
 func (c *Card)Use()bool{
@@ -74,4 +77,12 @@ func ChooseTarget(targets []Target) Target {
 		return nil
 	}
 	return targets[scanln-1]
+}
+
+func (c Card)ChooseAble()bool  {
+	return true
+}
+
+func (c Card)Response(Targeter)bool  {
+	return true
 }

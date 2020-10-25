@@ -24,7 +24,7 @@ func NewPlayer(i int) Player {
 		Name:     util.RandString(),
 		Hp:       4,
 		ID:       i,
-		Hero:     Hero{},
+		Hero:     ChooseHero("关羽"),
 		HandCard: nil,
 	}
 }

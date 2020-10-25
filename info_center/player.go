@@ -53,6 +53,8 @@ func (p *Player)PlayCards()  {
 		case 1024:
 			break
 		case 2048:
+			p.ChooseSkill()
+
 		default:
 
 		}
@@ -63,6 +65,27 @@ func (p *Player)PlayCards()  {
 			break
 		}
 	}
+}
+
+func (p *Player)ChooseSkill()  {
+	fmt.Printf("发动了%s的技能\n",p.Hero.HeroName)
+	choose := p.Hero.Skill.Choose(*Players)
+	if len(choose) == 0{
+		fmt.Println("无可选择目标")
+		return
+	}
+
+	for i := 0; i < len(choose); i++ {
+		fmt.Print("可选择的有,序号：",i)
+		PrintCard(choose[i].(Card))
+	}
+	var j int
+	_, err := fmt.Scanln(&j)
+	if err != nil{
+		return
+	}
+	p.Hero.Skill.AskAndEffect(&choose[j])
+
 }
 
 func (p *Player)Discarding() {
@@ -213,13 +236,13 @@ func (p *Player)UseCard(i int)  {
 func (p *Player)ChooseCard()int {
 	PrintCards(p.HandCard)
 	var id int
-	fmt.Println("输入使用牌的序号,输入1024以终止出牌阶段,输入2048以进入技能选择")
+	fmt.Println("输入使用牌的序号,输入1024以终止出牌阶段,输入2048以进入技能选择,当前攻击次数剩余：",p.AttackNum)
 	_, err := fmt.Scan(&id)
 	if err!= nil{
 		return p.ChooseCard()
 	}
 	if id==1024||id==2048{
-		return id-1
+		return id
 	}
 	if len(p.HandCard)<id||id<1{
 		fmt.Println("序号错误")
@@ -230,6 +253,7 @@ func (p *Player)ChooseCard()int {
 
 func (p *Player)PrintSituation()  {
 	fmt.Printf("现在是%s的%s阶段\n",p.Name,p.Situation)
+	fmt.Printf("攻击次数为%d\n",p.AttackNum)
 }
 
 func (p *Player)PrintPlayer()  {
