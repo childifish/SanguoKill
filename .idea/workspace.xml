@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a87bb8bb-3e2d-4f54-a2b2-51f163569c48" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Users\childifish\go\go1.14" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1jKDdJPmuy9jMkTSZ38VkR4sEEI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="go.sdk" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\childifish\Desktop\SanGuoKill\SanguoKill" />
+      <recent name="C:\Users\childifish\Desktop\SanGuoKill\info_center" />
+      <recent name="C:\Users\childifish\Desktop\SanGuoKill\game_center" />
+      <recent name="C:\Users\childifish\Desktop\SanGuoKill\info_center\card" />
+      <recent name="C:\Users\childifish\Desktop\SanGuoKill\game_center\playerchan" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build SanGuoKill">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="SanGuoKill" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/../SanGuoKill|$PROJECT_DIR$/cmd/main.go" />
+      <package value="SanGuoKill" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build SanGuoKill" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="SanGuoKill" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="SanGuoKill" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build SanGuoKill/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="SanGuoKill" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/main.go" />
+      <package value="SanGuoKill/cmd" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build SanGuoKill" />
+        <item itemvalue="Go Build.go build SanGuoKill/cmd" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="695" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603547532754">
+      <screen x="0" y="0" width="1848" height="1080" />
+    </state>
+    <state x="695" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1848.1080@0.0.1848.1080" timestamp="1603547532754" />
+    <state x="1021" y="298" key="FileChooserDialogImpl" timestamp="1603547529999">
+      <screen x="0" y="0" width="1848" height="1080" />
+    </state>
+    <state x="1021" y="298" key="FileChooserDialogImpl/0.0.1848.1080@0.0.1848.1080" timestamp="1603547529999" />
+    <state width="1878" height="325" key="GridCell.Tab.0.bottom" timestamp="1603625810725">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="325" key="GridCell.Tab.0.bottom/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603625810725" />
+    <state width="1166" height="308" key="GridCell.Tab.0.bottom/0.0.1208.800@0.0.1208.800" timestamp="1603595721918" />
+    <state width="1878" height="325" key="GridCell.Tab.0.center" timestamp="1603625810725">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="325" key="GridCell.Tab.0.center/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603625810725" />
+    <state width="1166" height="308" key="GridCell.Tab.0.center/0.0.1208.800@0.0.1208.800" timestamp="1603595721918" />
+    <state width="1878" height="325" key="GridCell.Tab.0.left" timestamp="1603625810725">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="325" key="GridCell.Tab.0.left/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603625810725" />
+    <state width="1166" height="308" key="GridCell.Tab.0.left/0.0.1208.800@0.0.1208.800" timestamp="1603595721918" />
+    <state width="1878" height="325" key="GridCell.Tab.0.right" timestamp="1603625810725">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="325" key="GridCell.Tab.0.right/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603625810725" />
+    <state width="1166" height="308" key="GridCell.Tab.0.right/0.0.1208.800@0.0.1208.800" timestamp="1603595721918" />
+    <state x="3021" y="163" key="SettingsEditor" timestamp="1603548335277">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3021" y="163" key="SettingsEditor/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603548335277" />
+    <state x="-238" y="95" width="572" height="785" maximized="true" key="dock-window-1" timestamp="1603603215690">
+      <screen x="0" y="0" width="1208" height="800" />
+    </state>
+    <state x="-6" y="0" width="616" height="806" key="dock-window-1/0.0.1208.800/2560.0.1920.1040@0.0.1208.800" timestamp="1603601850555" />
+    <state x="-238" y="95" width="572" height="785" maximized="true" key="dock-window-1/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603603215690" />
+    <state x="0" y="0" width="960" height="803" key="dock-window-1/0.0.1208.800@0.0.1208.800" timestamp="1603599867471" />
+    <state x="2560" y="0" width="644" height="1040" key="dock-window-2" timestamp="1603614802382">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2560" y="0" width="644" height="1040" key="dock-window-2/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603614802382" />
+    <state x="-6" y="0" width="616" height="806" maximized="true" key="dock-window-3" timestamp="1603615697951">
+      <screen x="0" y="0" width="1208" height="800" />
+    </state>
+    <state x="-6" y="0" width="616" height="806" maximized="true" key="dock-window-3/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603615697951" />
+    <state x="-76" y="401" width="988" height="815" key="dock-window-4" timestamp="1603614802382">
+      <screen x="0" y="0" width="1208" height="800" />
+    </state>
+    <state x="-76" y="401" width="988" height="815" key="dock-window-4/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603614802382" />
+    <state x="0" y="0" width="1220" height="815" key="dock-window-5" timestamp="1603616672178">
+      <screen x="0" y="0" width="1208" height="800" />
+    </state>
+    <state x="0" y="0" width="1220" height="815" key="dock-window-5/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603616672178" />
+    <state x="3222" y="252" width="596" height="536" key="find.popup" timestamp="1603625087271">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3222" y="252" width="596" height="536" key="find.popup/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603625087271" />
+    <state x="3642" y="230" key="search.everywhere.popup" timestamp="1603596983825">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3642" y="230" key="search.everywhere.popup/0.0.1208.800/2560.0.1920.1040@2560.0.1920.1040" timestamp="1603596983825" />
+  </component>
+</project>
