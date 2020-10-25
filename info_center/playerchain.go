@@ -62,3 +62,4 @@ func (p *PlayerChain)Killed(id int) {
 		}
 	}
 }
+

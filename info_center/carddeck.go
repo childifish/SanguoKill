@@ -57,7 +57,7 @@ func (c *CardDeck)PrintDeck()  {
 }
 
 func RandCard() Card {
-	intn := rand.Intn(2)
+	intn := rand.Intn(3)
 	switch intn{
 	case 0:
 		return Card{
@@ -72,6 +72,13 @@ func RandCard() Card {
 			User:   "",
 			Name:   "闪",
 			Effect: Evade{},
+		}
+	case 2:
+		return Card{
+			Poker:  RandPoker(),
+			User:   "",
+			Name:   "桃",
+			Effect: Peach{},
 		}
 	default:
 		return Card{}

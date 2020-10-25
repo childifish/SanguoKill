@@ -3,7 +3,7 @@ package info_center
 //基础操作
 type Operation interface {
 	Choose(PlayerChain)[]Target //选择目标
-	AskAndEffect(Target)        //询问对象响应--若有响应，
+	AskAndEffect(*Target)        //询问对象响应--若有响应，
 	//AskAndEffect(Target)
 }
 

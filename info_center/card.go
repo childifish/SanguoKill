@@ -37,7 +37,6 @@ func (c *Card)Use()bool{
 		return false
 	}
 
-
 	nowTarget = targeter
 
 	ok := nowTarget.Check()
@@ -52,10 +51,11 @@ func (c *Card)Use()bool{
 
 	realTarget :=  ChooseTarget(Targets)
 
-	nowTarget.AskAndEffect(realTarget)
+	nowTarget.AskAndEffect(&realTarget)
 
 	//todo: 不能成功掉血
 	//fmt.Println(Players)
+
 
 	return  true
 
@@ -65,7 +65,8 @@ func ChooseTarget(targets []Target) Target {
 	var i int
 	fmt.Println("输入你想指定的目标")
 	for _, i3 := range targets {
-		fmt.Println(i3)
+		player := i3.(*Player)
+		player.PrintPlayer()
 	}
 	scanln, err := fmt.Scanln(&i)
 	if err != nil{

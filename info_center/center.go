@@ -19,7 +19,7 @@ func Start()  {
 	Deck = InitCardDeck(40)
 	Deck.PrintDeck()
 
-	Players = InitPlayer(2)
+	Players = InitPlayer(4)
 	Players.PrintPlayer()
 
 	for i := 0; i < len(Players.Players); i++ {

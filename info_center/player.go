@@ -245,5 +245,6 @@ func (p *Player)Heal(i int)  {
 //受伤
 func (p *Player)Hurt(i int)  {
 	//todo：检测是不是死了
-	p.Hp = p.Hp - i
+	Result := p.Hp - i
+	p.Hp = Result
 }
