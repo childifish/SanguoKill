@@ -145,7 +145,7 @@ func (p *Player)ChooseAble()bool   {
 
 //进行响应
 func (p *Player)Response(targeter Targeter)bool   {
-	fmt.Println("需要",targeter.Need()[0].SelfNameIs(),"进行响应")
+	fmt.Println("需要",targeter.Need()[0].SelfNameIs(),"进行响应，输入0放弃响应")
 	able := p.FindResponse(targeter)
 	if len(able) == 0{
 		fmt.Println("无可以响应的牌")
@@ -159,6 +159,9 @@ func (p *Player)Response(targeter Targeter)bool   {
 	ok := able[i-1].Use()
 	if ok {
 		fmt.Println("响应完成")
+		if len(p.HandCard) == 0{
+			p.HandCard = nil
+		}
 		p.HandCard = append(p.HandCard[:i], p.HandCard[i+1:]...)
 		return true
 	}
@@ -262,8 +265,7 @@ func (p *Player)PrintPlayer()  {
 
 //加血
 func (p *Player)Heal(i int)bool  {
-	//todo：检测血量上限
-	if p.Hp+i >= p.Hero.HeroHp {
+	if p.Hp+i > p.Hero.HeroHp {
 		return false
 	}
 	p.Hp += i
@@ -272,7 +274,10 @@ func (p *Player)Heal(i int)bool  {
 
 //受伤
 func (p *Player)Hurt(i int)  {
-	//todo：检测是不是死了
 	Result := p.Hp - i
 	p.Hp = Result
+	if p.Hp <= 0 {
+		//找有没有桃
+		Players.Killed(p.ID)
+	}
 }

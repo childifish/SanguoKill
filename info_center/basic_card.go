@@ -1,12 +1,15 @@
 package info_center
 
-import "fmt"
+import (
+	"fmt"
+)
 
 //杀（行为）
 type Attack interface {
 }
 
 //闪避（行为）
+//可能可以给八卦阵之类的用到
 type Dodge interface {
 }
 
@@ -57,7 +60,7 @@ func (t Kill)AskAndEffect(target *Target)  {
 		if ok{
 			fmt.Println("成功造成伤害")
 			fmt.Println(Player.Hp)
-			Player.Hurt(1)
+			Player.Hurt(4)
 			fmt.Println(Player.Hp)
 			return
 		}
@@ -70,10 +73,12 @@ func (t Kill)AskAndEffect(target *Target)  {
 func (t Kill)Self() Targeter {
 	return &t
 }
+
 //返回本身
 func (t Kill)SelfIsTargeter()(bool, Targeter)  {
 	return true,&t
 }
+
 //返回可以响应该牌的对象
 func (t Kill)Need()(re []Responser)  {
 	re = append(re, Evade{})
@@ -125,13 +130,13 @@ func (p Peach) Choose(chain PlayerChain)(re []Target) {
 	if NowPlayer.Hp+1 > NowPlayer.Hero.HeroHp{
 		return re
 	}
-	re = append(re,NowPlayer)
+	re = append(re, NowPlayer)
 	return
 }
 func (p Peach) AskAndEffect(target *Target) {
-	fmt.Println(NowPlayer.Name,"现在",NowPlayer.Hp)
+	fmt.Println(NowPlayer.Name,"现在", NowPlayer.Hp)
 	NowPlayer.Heal(1)
-	fmt.Println("治愈了",NowPlayer.Hp)
+	fmt.Println("治愈了", NowPlayer.Hp)
 
 }
 func (p Peach) Self() Targeter {
@@ -140,21 +145,21 @@ func (p Peach) Self() Targeter {
 func (p Peach) NameIs() string {
 	return "Peach"
 }
-func (p Peach)Use()bool  {
+func (p Peach) Use()bool  {
 	return true
 }
-func (p Peach)Need()[]Responser  {
+func (p Peach) Need()[]Responser {
 	return nil
 }
-func (p Peach)AbleResponse()[]Targeter  {
+func (p Peach) AbleResponse()[]Targeter {
 	return nil
 }
-func (p Peach)SelfIsTargeter()(bool, Targeter){
+func (p Peach) SelfIsTargeter()(bool, Targeter){
 	return true,&p
 }
-func (p Peach)Check()bool  {
+func (p Peach) Check()bool  {
 	return true
 }
-func (p Peach)Do() {
+func (p Peach) Do() {
 
 }

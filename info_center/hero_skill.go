@@ -1,7 +1,5 @@
 package info_center
 
-
-
 type GuanYuSkill struct {
 	Hero
 }
@@ -24,6 +22,7 @@ func (g GuanYuSkill)Choose(p PlayerChain)(re []Target) {
 	return
 }
 
+//这里加选择英雄
 func ChooseHero(string2 string)Hero  {
 	switch string2 {
 	case "关羽":

@@ -32,7 +32,8 @@ func (c *Card)Use()bool{
 	var nowTarget Targeter
 	is,targeter := c.Effect.SelfIsTargeter()
 	//使用卡牌非当前回合玩家--》可能在响应
-	if c.User != NowPlayer.Name &&c.Name == "闪"{
+	//这里得改改。。。
+	if c.User != NowPlayer.Name &&(c.Name == "闪"||c.Name=="无懈可击"){
 		return true
 	}
 	if !is{
@@ -60,11 +61,16 @@ func (c *Card)Use()bool{
 
 	nowTarget.AskAndEffect(&realTarget)
 
-
-
-
 	return  true
 
+}
+
+func (c Card)ChooseAble()bool  {
+	return true
+}
+
+func (c Card)Response(Targeter)bool  {
+	return true
 }
 
 func ChooseTarget(targets []Target) Target {
@@ -80,12 +86,4 @@ func ChooseTarget(targets []Target) Target {
 		return nil
 	}
 	return targets[scanln-1]
-}
-
-func (c Card)ChooseAble()bool  {
-	return true
-}
-
-func (c Card)Response(Targeter)bool  {
-	return true
 }

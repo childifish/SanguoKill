@@ -29,6 +29,7 @@ func RandPoker()(p Poker)  {
 	return p
 }
 
+//变成
 func (p Poker)Goto(para string)Poker  {
 	switch para {
 	case "red":
