@@ -60,7 +60,7 @@ func (t Kill)AskAndEffect(target *Target)  {
 		if ok{
 			fmt.Println("成功造成伤害")
 			fmt.Println(Player.Hp)
-			Player.Hurt(4)
+			Player.Hurt(1)
 			fmt.Println(Player.Hp)
 			return
 		}
@@ -96,7 +96,7 @@ type Evade struct {
 	Dodge
 }
 
-//不能被直接使用
+
 func (e Evade)Use()bool  {
 	return true
 }

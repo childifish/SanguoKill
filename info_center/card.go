@@ -10,6 +10,8 @@ const (
 	//锦囊牌
 )
 
+var CadrIndex = []CardEffect{Kill{},Evade{},Peach{},PeachesUnion{},Waitertight{}}
+
 //只是牌本身的信息，没有其他有关技能，效果的信息
 type Card struct {
 	Poker
@@ -33,7 +35,7 @@ func (c *Card)Use()bool{
 	is,targeter := c.Effect.SelfIsTargeter()
 	//使用卡牌非当前回合玩家--》可能在响应
 	//这里得改改。。。
-	if c.User != NowPlayer.Name &&(c.Name == "闪"||c.Name=="无懈可击"){
+	if c.User != NowPlayer.Name &&(c.Name == "闪"||c.Name == "无懈可击"){
 		return true
 	}
 	if !is{

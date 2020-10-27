@@ -15,11 +15,11 @@ var turn int
 func Start()  {
 
 	//初始化卡池
-	Deck = InitCardDeck(40)
+	Deck = InitCardDeck(80)
 	Deck.PrintDeck()
 
 	//人数
-	Players = InitPlayer(2)
+	Players = InitPlayer(4)
 	Players.PrintPlayer()
 
 	for i := 0; i < len(Players.Players); i++ {

@@ -23,6 +23,8 @@ func (p *Player)Do()  {
 
 	//判定阶段
 	p.Situation = "判定阶段"
+	p.PrintSituation()
+	p.CheckChecking()
 
 	//抽牌阶段--判定技能
 	p.Situation = "抽牌阶段"
@@ -66,6 +68,16 @@ func (p *Player)PlayCards()  {
 		}
 	}
 }
+
+func (p *Player)CheckChecking()  {
+	if len(p.CheckingList)>0{
+		fmt.Println("存在判定牌")
+		for i := 0; i < len(p.CheckingList); i++ {
+			fmt.Printf("进行判定:%s---\n",p.CheckingList[i])
+		}
+	}
+}
+
 
 func (p *Player)ChooseSkill()  {
 	fmt.Printf("发动了%s的技能\n",p.Hero.HeroName)
@@ -178,8 +190,8 @@ func (p *Player)FindResponse(targeter Targeter)(re []Card)  {
 	println(p.HandCard)
 	for _, card := range p.HandCard {
 		for _, resp := range card.Effect.AbleResponse() {
-			fmt.Println("finding ...","需要被相应：",targeter.Self().NameIs(),"可以响应",resp.NameIs())
 			if targeter.Self().NameIs() == resp.NameIs(){
+				fmt.Println("finding ...",card.Name,"可以响应:",resp.NameIs())
 				re = append(re,card)
 			}
 		}
@@ -255,7 +267,7 @@ func (p *Player)ChooseCard()int {
 }
 
 func (p *Player)PrintSituation()  {
-	fmt.Printf("现在是%s的%s阶段\n",p.Name,p.Situation)
+	fmt.Printf("-------现在是%s的%s阶段--------\n",p.Name,p.Situation)
 	fmt.Printf("攻击次数为%d\n",p.AttackNum)
 }
 
