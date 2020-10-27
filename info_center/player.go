@@ -20,6 +20,10 @@ func (p *Player)Do()  {
 	//回合开始
 	p.Situation = "回合开始阶段"
 	p.AttackNum = 1
+	skill := p.CheckHeroSkill()
+	if skill{
+		p.Hero.Skill.HeroDo()
+	}
 
 	//判定阶段
 	p.Situation = "判定阶段"
@@ -292,4 +296,13 @@ func (p *Player)Hurt(i int)  {
 		//找有没有桃
 		Players.Killed(p.ID)
 	}
+}
+
+func (p *Player)CheckHeroSkill()bool  {
+	for i := 0; i < len(p.Hero.SkillTimer); i++ {
+		if p.Situation == p.Hero.SkillTimer[i]{
+			return true
+		}
+	}
+	return false
 }

@@ -5,6 +5,7 @@ type Hero struct {
 	User   string
 	HeroHp int
 	Skill Skill
+	SkillTimer []string
 }
 
 //锁定技--触发条件达到就必须触发
@@ -33,4 +34,6 @@ type BasicSkill interface {
 
 type Skill interface {
 	Operation
+	MightBeCard()[]CardEffect
+	HeroDo()
 }

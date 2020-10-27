@@ -1,6 +1,7 @@
 package info_center
 
 import (
+	"fmt"
 	"math/rand"
 )
 
@@ -29,9 +30,13 @@ func (c *CardDeck)GetCard(num int)(re []Card)  {
 	return re
 }
 
-//查看牌顶
+//查看牌顶.//判定
 func (c *CardDeck)CheckTop() Card {
-	return c.MainDeck[len(c.MainDeck)-1]
+	re := c.MainDeck[len(c.MainDeck)-1]
+	c.MainDeck = c.MainDeck[:len(c.MainDeck)-1]
+	fmt.Println("判定结果")
+	PrintCard(re)
+	return re
 }
 
 //检查是否需要洗牌

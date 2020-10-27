@@ -22,9 +22,9 @@ func InitPlayer(num int)*PlayerChain {
 func NewPlayer(i int) Player {
 	return Player{
 		Name:     util.RandString(),
-		Hp:       4,
+		Hp:       3,
 		ID:       i,
-		Hero:     ChooseHero("关羽"),
+		Hero:     ChooseHero("甄姬"),
 		HandCard: nil,
 	}
 }
