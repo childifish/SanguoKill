@@ -14,12 +14,12 @@ var turn int
 
 func Start()  {
 
-
-
-	Deck = InitCardDeck(40)
+	//初始化卡池
+	Deck = InitCardDeck(80)
 	Deck.PrintDeck()
 
-	Players = InitPlayer(2)
+	//人数
+	Players = InitPlayer(4)
 	Players.PrintPlayer()
 
 	for i := 0; i < len(Players.Players); i++ {
@@ -40,7 +40,6 @@ func Start()  {
 		//	Players.Killed(Players.Len()-1)
 		//}
 
-
 		if WinCondition(){
 			//结束游戏
 			break
@@ -54,7 +53,8 @@ func Start()  {
 //现在是活到最后的赢
 func WinCondition()bool  {
 	if Players.Len()==1{
-		fmt.Println(Players.Players[0],"获得了胜利")
+		Players.Players[0].PrintPlayer()
+		fmt.Println("获得了胜利")
 		return true
 	}
 	return false

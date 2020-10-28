@@ -22,9 +22,9 @@ func InitPlayer(num int)*PlayerChain {
 func NewPlayer(i int) Player {
 	return Player{
 		Name:     util.RandString(),
-		Hp:       4,
+		Hp:       3,
 		ID:       i,
-		Hero:     Hero{},
+		Hero:     ChooseHero("甄姬"),
 		HandCard: nil,
 	}
 }
@@ -54,11 +54,13 @@ func (p PlayerChain)Len()int {
 }
 
 func (p *PlayerChain)Killed(id int) {
+	fmt.Println("----------人被杀就会死----------")
 	for i, i2 := range p.Players {
 		if i2.ID == id {
-			fmt.Println(i2,"被杀死了")
+			i2.PrintPlayer()
+			fmt.Println("被杀死了....")
 			p.Players = append(p.Players[:i], p.Players[i+1:]...)
-			fmt.Println("幸存者",p.Players)
 		}
 	}
 }
+

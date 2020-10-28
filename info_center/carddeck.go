@@ -1,6 +1,7 @@
 package info_center
 
 import (
+	"fmt"
 	"math/rand"
 )
 
@@ -29,9 +30,13 @@ func (c *CardDeck)GetCard(num int)(re []Card)  {
 	return re
 }
 
-//查看牌顶
+//查看牌顶.//判定
 func (c *CardDeck)CheckTop() Card {
-	return c.MainDeck[len(c.MainDeck)-1]
+	re := c.MainDeck[len(c.MainDeck)-1]
+	c.MainDeck = c.MainDeck[:len(c.MainDeck)-1]
+	fmt.Println("判定结果")
+	PrintCard(re)
+	return re
 }
 
 //检查是否需要洗牌
@@ -57,7 +62,7 @@ func (c *CardDeck)PrintDeck()  {
 }
 
 func RandCard() Card {
-	intn := rand.Intn(2)
+	intn := rand.Intn(6)
 	switch intn{
 	case 0:
 		return Card{
@@ -72,6 +77,34 @@ func RandCard() Card {
 			User:   "",
 			Name:   "闪",
 			Effect: Evade{},
+		}
+	case 2:
+		return Card{
+			Poker:  RandPoker().Goto("red"),
+			User:   "",
+			Name:   "桃",
+			Effect: Peach{},
+		}
+	case 3:
+		return Card{
+			Poker:  RandPoker().Goto("red"),
+			User:   "",
+			Name:   "桃园结义",
+			Effect: PeachesUnion{},
+		}
+	case 4:
+		return Card{
+			Poker:  RandPoker(),
+			User:   "",
+			Name:   "无懈可击",
+			Effect: Waitertight{},
+		}
+	case 5:
+		return Card{
+			Poker:  RandPoker(),
+			User:   "",
+			Name:   "无中生有",
+			Effect: CardAppearInVoid{},
 		}
 	default:
 		return Card{}

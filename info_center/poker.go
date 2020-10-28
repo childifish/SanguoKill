@@ -3,6 +3,7 @@ package info_center
 import (
 	"math/rand"
 	"strconv"
+	"time"
 )
 
 const (
@@ -25,6 +26,25 @@ type Poker struct {
 func RandPoker()(p Poker)  {
 	p.Num = rand.Intn(12)
 	p.Flower =rand.Intn(3)
+	return p
+}
+
+//变成
+func (p Poker)Goto(para string)Poker  {
+	switch para {
+	case "red":
+		if time.Now().Unix()%2==0 {
+			p.Flower = 1
+		}else {
+			p.Flower = 3
+		}
+	case "black":
+		if time.Now().Unix()%2==0 {
+			p.Flower = 0
+		}else {
+			p.Flower = 2
+		}
+	}
 	return p
 }
 

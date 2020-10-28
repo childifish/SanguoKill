@@ -1,5 +1,13 @@
 package info_center
 
+type Hero struct {
+	HeroName string
+	User   string
+	HeroHp int
+	Skill Skill
+	SkillTimer []string
+}
+
 //锁定技--触发条件达到就必须触发
 //比较特殊
 type Passive interface {
@@ -22,4 +30,10 @@ type AwakeningSkill interface {
 //基础技能
 type BasicSkill interface {
 	Operation
+}
+
+type Skill interface {
+	Operation
+	MightBeCard()[]CardEffect
+	HeroDo()
 }

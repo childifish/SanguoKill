@@ -20,9 +20,15 @@ func (p *Player)Do()  {
 	//回合开始
 	p.Situation = "回合开始阶段"
 	p.AttackNum = 1
+	skill := p.CheckHeroSkill()
+	if skill{
+		p.Hero.Skill.HeroDo()
+	}
 
 	//判定阶段
 	p.Situation = "判定阶段"
+	p.PrintSituation()
+	p.CheckChecking()
 
 	//抽牌阶段--判定技能
 	p.Situation = "抽牌阶段"
@@ -53,6 +59,8 @@ func (p *Player)PlayCards()  {
 		case 1024:
 			break
 		case 2048:
+			p.ChooseSkill()
+
 		default:
 
 		}
@@ -63,6 +71,37 @@ func (p *Player)PlayCards()  {
 			break
 		}
 	}
+}
+
+func (p *Player)CheckChecking()  {
+	if len(p.CheckingList)>0{
+		fmt.Println("存在判定牌")
+		for i := 0; i < len(p.CheckingList); i++ {
+			fmt.Printf("进行判定:%s---\n",p.CheckingList[i])
+		}
+	}
+}
+
+
+func (p *Player)ChooseSkill()  {
+	fmt.Printf("发动了%s的技能\n",p.Hero.HeroName)
+	choose := p.Hero.Skill.Choose(*Players)
+	if len(choose) == 0{
+		fmt.Println("无可选择目标")
+		return
+	}
+
+	for i := 0; i < len(choose); i++ {
+		fmt.Print("可选择的有,序号：",i)
+		PrintCard(choose[i].(Card))
+	}
+	var j int
+	_, err := fmt.Scanln(&j)
+	if err != nil{
+		return
+	}
+	p.Hero.Skill.AskAndEffect(&choose[j])
+
 }
 
 func (p *Player)Discarding() {
@@ -122,7 +161,7 @@ func (p *Player)ChooseAble()bool   {
 
 //进行响应
 func (p *Player)Response(targeter Targeter)bool   {
-	fmt.Println("需要",targeter.Need()[0].SelfNameIs(),"进行响应")
+	fmt.Println("需要",targeter.Need()[0].SelfNameIs(),"进行响应，输入0放弃响应")
 	able := p.FindResponse(targeter)
 	if len(able) == 0{
 		fmt.Println("无可以响应的牌")
@@ -136,6 +175,9 @@ func (p *Player)Response(targeter Targeter)bool   {
 	ok := able[i-1].Use()
 	if ok {
 		fmt.Println("响应完成")
+		if len(p.HandCard) == 0{
+			p.HandCard = nil
+		}
 		p.HandCard = append(p.HandCard[:i], p.HandCard[i+1:]...)
 		return true
 	}
@@ -152,8 +194,8 @@ func (p *Player)FindResponse(targeter Targeter)(re []Card)  {
 	println(p.HandCard)
 	for _, card := range p.HandCard {
 		for _, resp := range card.Effect.AbleResponse() {
-			fmt.Println("finding ...","需要被相应：",targeter.Self().NameIs(),"可以响应",resp.NameIs())
 			if targeter.Self().NameIs() == resp.NameIs(){
+				fmt.Println("finding ...",card.Name,"可以响应:",resp.NameIs())
 				re = append(re,card)
 			}
 		}
@@ -213,13 +255,13 @@ func (p *Player)UseCard(i int)  {
 func (p *Player)ChooseCard()int {
 	PrintCards(p.HandCard)
 	var id int
-	fmt.Println("输入使用牌的序号,输入1024以终止出牌阶段,输入2048以进入技能选择")
+	fmt.Println("输入使用牌的序号,输入1024以终止出牌阶段,输入2048以进入技能选择,当前攻击次数剩余：",p.AttackNum)
 	_, err := fmt.Scan(&id)
 	if err!= nil{
 		return p.ChooseCard()
 	}
 	if id==1024||id==2048{
-		return id-1
+		return id
 	}
 	if len(p.HandCard)<id||id<1{
 		fmt.Println("序号错误")
@@ -229,7 +271,8 @@ func (p *Player)ChooseCard()int {
 }
 
 func (p *Player)PrintSituation()  {
-	fmt.Printf("现在是%s的%s阶段\n",p.Name,p.Situation)
+	fmt.Printf("-------现在是%s的%s阶段--------\n",p.Name,p.Situation)
+	fmt.Printf("攻击次数为%d\n",p.AttackNum)
 }
 
 func (p *Player)PrintPlayer()  {
@@ -237,13 +280,29 @@ func (p *Player)PrintPlayer()  {
 }
 
 //加血
-func (p *Player)Heal(i int)  {
-	//todo：检测血量上限
+func (p *Player)Heal(i int)bool  {
+	if p.Hp+i > p.Hero.HeroHp {
+		return false
+	}
 	p.Hp += i
+	return true
 }
 
 //受伤
 func (p *Player)Hurt(i int)  {
-	//todo：检测是不是死了
-	p.Hp = p.Hp - i
+	Result := p.Hp - i
+	p.Hp = Result
+	if p.Hp <= 0 {
+		//找有没有桃
+		Players.Killed(p.ID)
+	}
+}
+
+func (p *Player)CheckHeroSkill()bool  {
+	for i := 0; i < len(p.Hero.SkillTimer); i++ {
+		if p.Situation == p.Hero.SkillTimer[i]{
+			return true
+		}
+	}
+	return false
 }
